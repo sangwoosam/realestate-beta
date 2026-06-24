@@ -57,7 +57,8 @@
   .pnl.big .v{font-size:20px;font-weight:900;color:var(--green);}
   /* 임차인등록 */
   .regc{background:var(--card);border-radius:14px;padding:18px;margin-bottom:11px;display:flex;align-items:center;gap:14px;cursor:pointer;}
-  .regc .ic{font-size:26px;width:48px;height:48px;border-radius:24px;background:var(--primaryD);display:flex;align-items:center;justify-content:center;}
+  .regc .ic{font-size:26px;width:48px;height:48px;flex:0 0 48px;border-radius:24px;background:var(--primaryD);display:flex;align-items:center;justify-content:center;}
+  .regc .tx{flex:1;min-width:0;}
   .regc .t{font-size:16px;font-weight:800;} .regc .d{font-size:12.5px;color:var(--sub);margin-top:3px;}
   /* 탭바 */
   .tabbar{display:flex;border-top:1px solid var(--line);background:var(--card2);padding-bottom:env(safe-area-inset-bottom);}
@@ -191,7 +192,7 @@ function statsHTML(){
 
 function regHTML(){
   const items=[['📷','계약서 사진으로 등록','계약서를 찍으면 자동으로 정보를 읽어요'],['✍️','계약서 직접 작성','정보를 입력해 임대차계약서를 만들어요'],['📋','등록된 임차인 수정·삭제','세입자 정보 수정·삭제'],['🏢','상가 사업자등록증 등록','사업자등록증을 사진/직접으로 등록']];
-  return `<div class="stitle">임차인 등록</div>${items.map(it=>`<div class="regc" onclick="lock()"><div class="ic">${it[0]}</div><div><div class="t">${it[1]}</div><div class="d">${it[2]}</div></div></div>`).join('')}`;
+  return `<div class="stitle">임차인 등록</div>${items.map(it=>`<div class="regc" onclick="lock()"><div class="ic">${it[0]}</div><div class="tx"><div class="t">${it[1]}</div><div class="d">${it[2]}</div></div></div>`).join('')}`;
 }
 function notiHTML(){
   return `<div class="stitle">알림</div>
@@ -214,7 +215,7 @@ function goTab(t){
 }
 
 // 환영 슬라이드
-const SL=[['👋','Welcome, 프라이머','오너스 투자자 데모에 오신 것을 환영합니다.\n건물주를 위한 자동화 임대관리 장부.'],
+const SL=[['👋','Welcome, 프라이머','오너스 투자자 데모에 오신 것을 환영합니다.\n건물주를 위한 자동화 임대관리 장부.\n\n※ 이 화면은 실제 앱이 아닌 웹 데모라\n기능이 극히 제한적으로만 작동합니다.\n전체 기능은 베타 앱에서 확인하실 수 있어요.'],
   ['🏢','강남대로 464 빌딩','세입자 5명이 입주한 건물을 둘러보세요.\n임대현황·통계는 실제처럼 작동합니다.'],
   ['🔒','데모는 여기까지','일부 기능은 잠겨 있어요.\n전체는 베타 앱에서 — 더 빠른 완성엔\n프라이머의 투자(1억원·post-value 10억)와\n액셀러레이팅이 필요합니다 😉']];
 let si=0;
